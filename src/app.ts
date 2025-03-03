@@ -11,8 +11,10 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan('combined', { stream: { write: (message) => logger.info(message.trim()) } }));
 
+// Register tenant routes
 app.use('/api', tenantRoutes);
 
+// Error handling middleware
 app.use(errorHandler);
 
 export { app };
