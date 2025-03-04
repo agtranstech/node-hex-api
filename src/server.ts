@@ -1,8 +1,8 @@
 import { app } from './app';
+import { config } from './infrastructure/config/config';
 import { sequelize } from './infrastructure/database/sequelize';
-// import { sequelize } from './infrastructure/database/sequelize/sequelize';
 
-const PORT = process.env.PORT || 3000;
+const PORT = config.server.port;
 
 sequelize.sync().then(() => {
     app.listen(PORT, () => {
